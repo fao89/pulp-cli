@@ -15,5 +15,5 @@ def orphans() -> None:
 @orphans.command()
 @pass_pulp_context
 def delete(pulp_ctx: PulpContext) -> None:
-    result = pulp_ctx.call("orphans_delete")
+    result = pulp_ctx.call("delete")
     pulp_ctx.output_result(result)

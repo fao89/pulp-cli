@@ -14,8 +14,8 @@ _ = gettext.gettext
 class PulpArtifactContext(PulpEntityContext):
     ENTITY = "artifact"
     HREF = "artifact_href"
-    LIST_ID = "artifacts_list"
-    READ_ID = "artifacts_read"
+    LIST_ID = "list"
+    READ_ID = "read"
 
     def upload(self, file: IO[bytes], chunk_size: int = 1000000, check_exists: bool = True) -> Any:
         upload_ctx = PulpUploadContext(self.pulp_ctx)
@@ -66,21 +66,21 @@ class PulpArtifactContext(PulpEntityContext):
 class PulpExporterContext(PulpEntityContext):
     ENTITY = "PulpExporter"
     HREF = "pulp_exporter_href"
-    LIST_ID = "exporters_core_pulp_list"
-    READ_ID = "exporters_core_pulp_read"
-    CREATE_ID = "exporters_core_pulp_create"
-    UPDATE_ID = "exporters_core_pulp_partial_update"
-    DELETE_ID = "exporters_core_pulp_delete"
+    LIST_ID = "list"
+    READ_ID = "read"
+    CREATE_ID = "create"
+    UPDATE_ID = "partial_update"
+    DELETE_ID = "delete"
 
 
 class PulpExportContext(PulpEntityContext):
     ENTITY = "PulpExport"
     # This is replaced by a version aware property below
     # HREF = "pulp_pulp_export_href"
-    LIST_ID = "exporters_core_pulp_exports_list"
-    READ_ID = "exporters_core_pulp_exports_read"
-    CREATE_ID = "exporters_core_pulp_exports_create"
-    DELETE_ID = "exporters_core_pulp_exports_delete"
+    LIST_ID = "list"
+    READ_ID = "read"
+    CREATE_ID = "create"
+    DELETE_ID = "delete"
     exporter: EntityDefinition
 
     def list(self, limit: int, offset: int, parameters: Dict[str, Any]) -> List[Any]:
@@ -124,11 +124,11 @@ class PulpExportContext(PulpEntityContext):
 class PulpGroupContext(PulpEntityContext):
     ENTITY = "group"
     HREF = "auth_group_href"
-    LIST_ID = "groups_list"
-    READ_ID = "groups_read"
-    CREATE_ID = "groups_create"
-    UPDATE_ID = "groups_partial_update"
-    DELETE_ID = "groups_delete"
+    LIST_ID = "list"
+    READ_ID = "read"
+    CREATE_ID = "create"
+    UPDATE_ID = "partial_update"
+    DELETE_ID = "delete"
 
     def find(self, **kwargs: Any) -> Any:
         """Workaroud for the missing ability to filter"""
@@ -148,9 +148,9 @@ class PulpGroupUserContext(PulpEntityContext):
     ENTITY = "group user"
     # This is replaced by a version aware property below
     # HREF = "auth_groups_user_href"
-    LIST_ID = "groups_users_list"
-    CREATE_ID = "groups_users_create"
-    DELETE_ID = "groups_users_delete"
+    LIST_ID = "list"
+    CREATE_ID = "create"
+    DELETE_ID = "delete"
     group_ctx: PulpGroupContext
 
     def __init__(self, pulp_ctx: PulpContext, group_ctx: PulpGroupContext) -> None:
@@ -198,18 +198,18 @@ class PulpGroupUserContext(PulpEntityContext):
 class PulpImporterContext(PulpEntityContext):
     ENTITY = "PulpImporter"
     HREF = "pulp_importer_href"
-    CREATE_ID = "importers_core_pulp_create"
-    READ_ID = "importers_core_pulp_read"
-    UPDATE_ID = "importers_core_pulp_partial_update"
-    DELETE_ID = "importers_core_pulp_delete"
-    LIST_ID = "importers_core_pulp_list"
+    CREATE_ID = "create"
+    READ_ID = "read"
+    UPDATE_ID = "partial_update"
+    DELETE_ID = "delete"
+    LIST_ID = "list"
 
 
 class PulpTaskContext(PulpEntityContext):
     ENTITY = "task"
     HREF = "task_href"
-    LIST_ID = "tasks_list"
-    READ_ID = "tasks_read"
+    LIST_ID = "list"
+    READ_ID = "read"
     CANCEL_ID: ClassVar[str] = "tasks_cancel"
 
     def cancel(self, task_href: str) -> Any:
@@ -223,12 +223,12 @@ class PulpTaskContext(PulpEntityContext):
 class PulpUploadContext(PulpEntityContext):
     ENTITY = "upload"
     HREF = "upload_href"
-    LIST_ID = "uploads_list"
-    READ_ID = "uploads_read"
-    CREATE_ID = "uploads_create"
-    UPDATE_ID = "uploads_update"
-    DELETE_ID = "uploads_delete"
-    COMMIT_ID: ClassVar[str] = "uploads_commit"
+    LIST_ID = "list"
+    READ_ID = "read"
+    CREATE_ID = "create"
+    UPDATE_ID = "update"
+    DELETE_ID = "delete"
+    COMMIT_ID: ClassVar[str] = "commit"
 
     def commit(self, upload_href: str, sha256: str) -> Any:
         return self.pulp_ctx.call(
@@ -241,8 +241,8 @@ class PulpUploadContext(PulpEntityContext):
 class PulpUserContext(PulpEntityContext):
     ENTITY = "user"
     HREF = "auth_user_href"
-    LIST_ID = "users_list"
-    READ_ID = "users_read"
+    LIST_ID = "list"
+    READ_ID = "read"
 
     def find(self, **kwargs: Any) -> Any:
         """Workaroud for the missing ability to filter"""
@@ -261,5 +261,5 @@ class PulpUserContext(PulpEntityContext):
 class PulpWorkerContext(PulpEntityContext):
     ENTITY = "worker"
     HREF = "worker_href"
-    LIST_ID = "workers_list"
-    READ_ID = "workers_read"
+    LIST_ID = "list"
+    READ_ID = "read"

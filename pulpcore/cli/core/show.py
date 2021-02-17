@@ -13,5 +13,5 @@ _ = gettext.gettext
 def show(pulp_ctx: PulpContext, href: str) -> None:
     """Show any resource given its href."""
     # use a random read operation to call the href
-    entity = pulp_ctx.call("artifacts_read", parameters={"artifact_href": href})
+    entity = pulp_ctx.call("read", parameters={"artifact_href": href})
     pulp_ctx.output_result(entity)

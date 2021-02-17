@@ -14,20 +14,20 @@ class PulpFileContentContext(PulpEntityContext):
     ENTITY = "file content"
     ENTITIES = "file content"
     HREF = "file_file_content_href"
-    LIST_ID = "content_file_files_list"
-    READ_ID = "content_file_files_read"
-    CREATE_ID = "content_file_files_create"
+    LIST_ID = "list"
+    READ_ID = "read"
+    CREATE_ID = "create"
 
 
 class PulpFileDistributionContext(PulpEntityContext):
     ENTITY = "file distribution"
     ENTITIES = "file distributions"
     HREF = "file_file_distribution_href"
-    LIST_ID = "distributions_file_file_list"
-    READ_ID = "distributions_file_file_read"
-    CREATE_ID = "distributions_file_file_create"
-    UPDATE_ID = "distributions_file_file_partial_update"
-    DELETE_ID = "distributions_file_file_delete"
+    LIST_ID = "list"
+    READ_ID = "read"
+    CREATE_ID = "create"
+    UPDATE_ID = "partial_update"
+    DELETE_ID = "delete"
 
     def preprocess_body(self, body: EntityDefinition) -> EntityDefinition:
         body = super().preprocess_body(body)
@@ -43,10 +43,10 @@ class PulpFilePublicationContext(PulpEntityContext):
     ENTITY = "file publication"
     ENTITIES = "file publications"
     HREF = "file_file_publication_href"
-    LIST_ID = "publications_file_file_list"
-    READ_ID = "publications_file_file_read"
-    CREATE_ID = "publications_file_file_create"
-    DELETE_ID = "publications_file_file_delete"
+    LIST_ID = "list"
+    READ_ID = "read"
+    CREATE_ID = "create"
+    DELETE_ID = "delete"
 
     def preprocess_body(self, body: EntityDefinition) -> EntityDefinition:
         body = super().preprocess_body(body)
@@ -61,11 +61,11 @@ class PulpFileRemoteContext(PulpEntityContext):
     ENTITY = "file remote"
     ENTITIES = "file remotes"
     HREF = "file_file_remote_href"
-    LIST_ID = "remotes_file_file_list"
-    CREATE_ID = "remotes_file_file_create"
-    READ_ID = "remotes_file_file_read"
-    UPDATE_ID = "remotes_file_file_partial_update"
-    DELETE_ID = "remotes_file_file_delete"
+    LIST_ID = "list"
+    CREATE_ID = "create"
+    READ_ID = "read"
+    UPDATE_ID = "partial_update"
+    DELETE_ID = "delete"
 
     def preprocess_body(self, body: EntityDefinition) -> EntityDefinition:
         body = super().preprocess_body(body)
@@ -85,21 +85,21 @@ class PulpFileRemoteContext(PulpEntityContext):
 class PulpFileRepositoryVersionContext(PulpRepositoryVersionContext):
     HREF = "file_file_repository_version_href"
     REPOSITORY_HREF = "file_file_repository_href"
-    LIST_ID = "repositories_file_file_versions_list"
-    READ_ID = "repositories_file_file_versions_read"
-    DELETE_ID = "repositories_file_file_versions_delete"
-    REPAIR_ID = "repositories_file_file_versions_repair"
+    LIST_ID = "list"
+    READ_ID = "read"
+    DELETE_ID = "delete"
+    REPAIR_ID = "repair"
 
 
 class PulpFileRepositoryContext(PulpRepositoryContext):
     HREF = "file_file_repository_href"
-    LIST_ID = "repositories_file_file_list"
-    READ_ID = "repositories_file_file_read"
-    CREATE_ID = "repositories_file_file_create"
-    UPDATE_ID = "repositories_file_file_partial_update"
-    DELETE_ID = "repositories_file_file_delete"
-    SYNC_ID = "repositories_file_file_sync"
-    MODIFY_ID = "repositories_file_file_modify"
+    LIST_ID = "list"
+    READ_ID = "read"
+    CREATE_ID = "create"
+    UPDATE_ID = "partial_update"
+    DELETE_ID = "delete"
+    SYNC_ID = "sync"
+    MODIFY_ID = "modify"
     VERSION_CONTEXT = PulpFileRepositoryVersionContext
 
     def preprocess_body(self, body: EntityDefinition) -> EntityDefinition:

@@ -122,7 +122,7 @@ class PulpContext:
             raise click.ClickException(str(e.response.text))
         if "task" in result:
             task_href = result["task"]
-            result = self.api.call("tasks_read", parameters={"task_href": task_href})
+            result = self.api.call("read", parameters={"task_href": task_href})
             click.echo(f"Started background task {task_href}", err=True)
             if not non_blocking:
                 result = self.wait_for_task(result)
@@ -153,7 +153,7 @@ class PulpContext:
                     time.sleep(1)
                     timeout -= 1
                     click.echo(".", nl=False, err=True)
-                    task = self.api.call("tasks_read", parameters={"task_href": task_href})
+                    task = self.api.call("read", parameters={"task_href": task_href})
                 else:
                     raise NotImplementedError(f"Unknown task state: {task['state']}")
             raise click.ClickException("Task timed out")
@@ -218,13 +218,13 @@ class PulpEntityContext:
 
     # { "pulp_type" : repository-list-id }
     REPOSITORY_FIND_IDS: Dict[str, str] = {
-        "file": "repositories_file_file_list",
-        "rpm": "repositories_rpm_rpm_list",
+        "file": "list",
+        "rpm": "list",
     }
     # { "pulp_type" : repository-version-list-id }
     REPOSITORY_VERSION_FIND_IDS: Dict[str, str] = {
-        "file": "repositories_file_file_versions_list",
-        "rpm": "repositories_rpm_rpm_versions_list",
+        "file": "list",
+        "rpm": "list",
     }
     # { "pulp_type" : repository-href-ids }
     REPOSITORY_HREF_IDS = {
@@ -467,7 +467,7 @@ class PulpRepositoryContext(PulpEntityContext):
 
     ENTITY = "repository"
     ENTITIES = "repositories"
-    LIST_ID = "repositories_list"
+    LIST_ID = "list"
     SYNC_ID: ClassVar[str]
     MODIFY_ID: ClassVar[str]
     VERSION_CONTEXT: ClassVar[Type[PulpRepositoryVersionContext]]

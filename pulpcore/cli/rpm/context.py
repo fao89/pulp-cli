@@ -13,11 +13,11 @@ _ = gettext.gettext
 class PulpRpmDistributionContext(PulpEntityContext):
     ENTITY = "distribution"
     HREF = "rpm_rpm_distribution_href"
-    LIST_ID = "distributions_rpm_rpm_list"
-    READ_ID = "distributions_rpm_rpm_read"
-    CREATE_ID = "distributions_rpm_rpm_create"
-    UPDATE_ID = "distributions_rpm_rpm_partial_update"
-    DELETE_ID = "distributions_rpm_rpm_delete"
+    LIST_ID = "list"
+    READ_ID = "read"
+    CREATE_ID = "create"
+    UPDATE_ID = "partial_update"
+    DELETE_ID = "delete"
 
     def preprocess_body(self, body: EntityDefinition) -> EntityDefinition:
         body = super().preprocess_body(body)
@@ -32,10 +32,10 @@ class PulpRpmDistributionContext(PulpEntityContext):
 class PulpRpmPublicationContext(PulpEntityContext):
     ENTITY = "publication"
     HREF = "rpm_rpm_publication_href"
-    LIST_ID = "publications_rpm_rpm_list"
-    READ_ID = "publications_rpm_rpm_read"
-    CREATE_ID = "publications_rpm_rpm_create"
-    DELETE_ID = "publications_rpm_rpm_delete"
+    LIST_ID = "list"
+    READ_ID = "read"
+    CREATE_ID = "create"
+    DELETE_ID = "delete"
 
     def preprocess_body(self, body: EntityDefinition) -> EntityDefinition:
         body = super().preprocess_body(body)
@@ -49,11 +49,11 @@ class PulpRpmPublicationContext(PulpEntityContext):
 class PulpRpmRemoteContext(PulpEntityContext):
     ENTITY = "remote"
     HREF = "rpm_rpm_remote_href"
-    LIST_ID = "remotes_rpm_rpm_list"
-    READ_ID = "remotes_rpm_rpm_read"
-    CREATE_ID = "remotes_rpm_rpm_create"
-    UPDATE_ID = "remotes_rpm_rpm_partial_update"
-    DELETE_ID = "remotes_rpm_rpm_delete"
+    LIST_ID = "list"
+    READ_ID = "read"
+    CREATE_ID = "create"
+    UPDATE_ID = "partial_update"
+    DELETE_ID = "delete"
 
     def preprocess_body(self, body: EntityDefinition) -> EntityDefinition:
         body = super().preprocess_body(body)
@@ -73,20 +73,20 @@ class PulpRpmRemoteContext(PulpEntityContext):
 class PulpRpmRepositoryVersionContext(PulpRepositoryVersionContext):
     HREF = "rpm_rpm_repository_version_href"
     REPOSITORY_HREF = "rpm_rpm_repository_href"
-    LIST_ID = "repositories_rpm_rpm_versions_list"
-    READ_ID = "repositories_rpm_rpm_versions_read"
-    DELETE_ID = "repositories_rpm_rpm_versions_delete"
-    REPAIR_ID = "repositories_rpm_rpm_versions_repair"
+    LIST_ID = "list"
+    READ_ID = "read"
+    DELETE_ID = "delete"
+    REPAIR_ID = "repair"
 
 
 class PulpRpmRepositoryContext(PulpRepositoryContext):
     HREF = "rpm_rpm_repository_href"
-    LIST_ID = "repositories_rpm_rpm_list"
-    READ_ID = "repositories_rpm_rpm_read"
-    CREATE_ID = "repositories_rpm_rpm_create"
-    UPDATE_ID = "repositories_rpm_rpm_partial_update"
-    DELETE_ID = "repositories_rpm_rpm_delete"
-    SYNC_ID = "repositories_rpm_rpm_sync"
+    LIST_ID = "list"
+    READ_ID = "read"
+    CREATE_ID = "create"
+    UPDATE_ID = "partial_update"
+    DELETE_ID = "delete"
+    SYNC_ID = "sync"
     VERSION_CONTEXT = PulpRpmRepositoryVersionContext
 
     def preprocess_body(self, body: EntityDefinition) -> EntityDefinition:

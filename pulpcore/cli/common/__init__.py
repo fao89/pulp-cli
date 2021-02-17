@@ -105,7 +105,7 @@ def main(
 
     api_kwargs = dict(
         base_url=base_url,
-        doc_path="/pulp/api/v3/docs/api.json",
+        doc_path="/pulp/api/v3/docs/api.json?bindings",
         username=username,
         password=password,
         cert=cert,
